@@ -2,9 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
+## How to start
+1. Run `npm install`
+2. Run `npm run start:proxy:mock:server` to start the dev + proxy + json server altogether.
+3. Open `http://localhost:4200
+
+## Features
+1. Add restaurant with name, coordinates, and image.
+2. Search for restaurant by name or type.
+3. Delete a restaurant.
+4. Overview of the restaurant list in a table.
+5. View restaurant location directly in a map.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run start:proxy:mock:server` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
