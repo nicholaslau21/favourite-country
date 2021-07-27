@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Clone the project using the HTTPS web URL.
 2. Navigate to the project directory using a terminal and then run `npm install` to install dependencies.
 3. Run `npm run start:proxy:mock:server` to start the dev + proxy + json server altogether.
-4. Open `http://localhost:4200
+4. Open http://localhost:4200
 
 ## Features
 1. Add restaurant with name, coordinates, and image.
