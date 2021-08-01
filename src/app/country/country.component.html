@@ -1,0 +1,74 @@
+<div>
+  <div>
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+      style="width: 100%; height: 400px; display: block"
+    ></highcharts-chart>
+  </div>
+  <mat-form-field appearance="standard" style="width: 15%" class="mr-10">
+    <mat-label>Filter by name or capital</mat-label>
+    <input matInput placeholder="E.g. Malaysia" #searchInput />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [innerHTML]="element.name | highlightText: searchTerm"
+      ></td>
+    </ng-container>
+    <ng-container matColumnDef="region">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Region</th>
+      <td mat-cell *matCellDef="let element">{{ element.region }}</td>
+    </ng-container>
+    <ng-container matColumnDef="capital">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Capital</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [innerHTML]="element.capital | highlightText: searchTerm"
+      ></td>
+    </ng-container>
+    <ng-container matColumnDef="flag">
+      <th mat-header-cell *matHeaderCellDef>Flag</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.flag" class="country-flag" />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          class="country-actions"
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row.id) : null"
+          [checked]="selection.isSelected(row.id)"
+          matTooltip="Mark as favourite"
+        >
+        </mat-checkbox>
+        <button
+          class="country-actions"
+          mat-icon-button
+          [routerLink]="['/country', row.id]"
+          [queryParams]="{ coord: row.coord }"
+          matTooltip="Go to map"
+        >
+          <mat-icon mat-icon-button>place</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[10, 20, 50]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>

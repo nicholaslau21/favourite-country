@@ -13,11 +13,11 @@ import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 
 @Component({
-  selector: 'app-restaurant-details',
-  templateUrl: './restaurant-details.component.html',
-  styleUrls: ['./restaurant-details.component.scss'],
+  selector: 'app-country-details',
+  templateUrl: './country-details.component.html',
+  styleUrls: ['./country-details.component.scss'],
 })
-export class RestaurantDetailsComponent implements OnInit {
+export class CountryDetailsComponent implements OnInit {
   map: Map;
 
   constructor(private route: ActivatedRoute) {}
@@ -52,7 +52,7 @@ export class RestaurantDetailsComponent implements OnInit {
       ],
       view: new View({
         center: fromLonLat([lon, lat]),
-        zoom: 17,
+        zoom: 3,
       }),
     });
   }

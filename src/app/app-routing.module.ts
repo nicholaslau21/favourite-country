@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RestaurantDetailsComponent } from './restaurant/restaurant-list/restaurant-details/restaurant-details.component';
-import { RestaurantComponent } from './restaurant/restaurant.component';
+import { CountryDetailsComponent } from './country/country-details/country-details.component';
+import { CountryComponent } from './country/country.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'restaurant',
+    redirectTo: 'country',
     pathMatch: 'full'
   },
   {
-    path: 'restaurant',
-    component: RestaurantComponent,
+    path: 'country',
+    component: CountryComponent,
   },
   {
-    path: 'restaurant/:id',
-    component: RestaurantDetailsComponent
+    path: 'country/:id',
+    component: CountryDetailsComponent
   }
 ];
 
